@@ -47,5 +47,30 @@ This project documents the security auditing and hardening of a cloud-hosted Ubu
 - `find`
 - `/etc/ssh/sshd_config` review
 
+---
+
+## Audit Evidence
+
+### Open Ports
+![Open Ports](screenshots/Open-Ports.png)
+
+### Firewall Status
+![Firewall Status](screenshots/Firewall-status.png)
+
+### SSH Configuration
+![SSH Configuration](screenshots/ssh-config.png)
+
+### Sudo Group
+![Sudo Group](screenshots/sudo-group.png)
+
+### Root Account Status
+![Root Status](screenshots/root-status.png)
+
+### Running Services
+![Running Services](screenshots/Running-Services.png)
+
+### World Writable File Scan
+![World Writable Scan](screenshots/world-writable-scan.png)
+
 ## Outcome
 The server was successfully hardened following cloud security best practices and documented in a structured audit report suitable for cybersecurity portfolio presentation.

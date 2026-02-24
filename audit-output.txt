@@ -1,0 +1,116 @@
+==============================
+ LINUX SECURITY AUDIT REPORT 
+==============================
+
+===== SYSTEM INFO =====
+ Static hostname: ip-172-31-27-74
+       Icon name: computer-vm
+         Chassis: vm 🖴
+      Machine ID: ec2395a2f0c80af6acf908757c756720
+         Boot ID: 5344773577c74f07ae3b49ec1cab9486
+  Virtualization: amazon
+Operating System: Ubuntu 24.04.4 LTS
+          Kernel: Linux 6.14.0-1018-aws
+    Architecture: x86-64
+ Hardware Vendor: Amazon EC2
+  Hardware Model: t3.micro
+Firmware Version: 1.0
+   Firmware Date: Mon 2017-10-16
+    Firmware Age: 8y 4month 1w 3d
+
+===== OPEN PORTS =====
+Netid State  Recv-Q Send-Q     Local Address:Port Peer Address:PortProcess                                                 
+udp   UNCONN 0      0             127.0.0.54:53        0.0.0.0:*    users:(("systemd-resolve",pid=5103,fd=16))             
+udp   UNCONN 0      0          127.0.0.53%lo:53        0.0.0.0:*    users:(("systemd-resolve",pid=5103,fd=14))             
+udp   UNCONN 0      0      172.31.27.74%ens5:68        0.0.0.0:*    users:(("systemd-network",pid=4803,fd=22))             
+udp   UNCONN 0      0              127.0.0.1:323       0.0.0.0:*    users:(("chronyd",pid=13551,fd=5))                     
+udp   UNCONN 0      0                  [::1]:323          [::]:*    users:(("chronyd",pid=13551,fd=6))                     
+tcp   LISTEN 0      4096       127.0.0.53%lo:53        0.0.0.0:*    users:(("systemd-resolve",pid=5103,fd=15))             
+tcp   LISTEN 0      4096          127.0.0.54:53        0.0.0.0:*    users:(("systemd-resolve",pid=5103,fd=17))             
+tcp   LISTEN 0      4096             0.0.0.0:22        0.0.0.0:*    users:(("sshd",pid=13846,fd=3),("systemd",pid=1,fd=96))
+tcp   LISTEN 0      4096                [::]:22           [::]:*    users:(("sshd",pid=13846,fd=4),("systemd",pid=1,fd=99))
+
+===== FIREWALL STATUS =====
+Status: active
+Logging: on (low)
+Default: deny (incoming), allow (outgoing), disabled (routed)
+New profiles: skip
+
+To                         Action      From
+--                         ------      ----
+22/tcp (OpenSSH)           ALLOW IN    Anywhere                  
+22/tcp (OpenSSH (v6))      ALLOW IN    Anywhere (v6)             
+
+
+===== SSH HARDENING CHECK =====
+#PermitRootLogin prohibit-password
+#PubkeyAuthentication yes
+#PasswordAuthentication yes
+# PasswordAuthentication.  Depending on your PAM configuration,
+# the setting of "PermitRootLogin prohibit-password".
+# PAM authentication, then enable this but set PasswordAuthentication
+PermitRootLogin no
+PasswordAuthentication no
+PubkeyAuthentication yes
+
+===== SUDO USERS =====
+sudo:x:27:ubuntu
+
+===== ROOT ACCOUNT STATUS =====
+root L 2025-12-12 0 99999 7 -1
+
+===== RUNNING SERVICES =====
+  UNIT                                           LOAD   ACTIVE SUB     DESCRIPTION
+  acpid.service                                  loaded active running ACPI event daemon
+  chrony.service                                 loaded active running chrony, an NTP client/server
+  cron.service                                   loaded active running Regular background program processing daemon
+  dbus.service                                   loaded active running D-Bus System Message Bus
+  getty@tty1.service                             loaded active running Getty on tty1
+  irqbalance.service                             loaded active running irqbalance daemon
+  multipathd.service                             loaded active running Device-Mapper Multipath Device Controller
+  networkd-dispatcher.service                    loaded active running Dispatcher daemon for systemd-networkd
+  polkit.service                                 loaded active running Authorization Manager
+  rsyslog.service                                loaded active running System Logging Service
+  serial-getty@ttyS0.service                     loaded active running Serial Getty on ttyS0
+  snap.amazon-ssm-agent.amazon-ssm-agent.service loaded active running Service for snap application amazon-ssm-agent.amazon-ssm-agent
+  snapd.service                                  loaded active running Snap Daemon
+  ssh.service                                    loaded active running OpenBSD Secure Shell server
+  systemd-hostnamed.service                      loaded active running Hostname Service
+  systemd-journald.service                       loaded active running Journal Service
+  systemd-logind.service                         loaded active running User Login Management
+  systemd-networkd.service                       loaded active running Network Configuration
+  systemd-resolved.service                       loaded active running Network Name Resolution
+  systemd-udevd.service                          loaded active running Rule-based Manager for Device Events and Files
+  udisks2.service                                loaded active running Disk Manager
+  unattended-upgrades.service                    loaded active running Unattended Upgrades Shutdown
+  user@1000.service                              loaded active running User Manager for UID 1000
+
+Legend: LOAD   → Reflects whether the unit definition was properly loaded.
+        ACTIVE → The high-level unit activation state, i.e. generalization of SUB.
+        SUB    → The low-level unit activation state, values depend on unit type.
+
+23 loaded units listed.
+
+===== WORLD WRITABLE FILE SCAN (TOP 20) =====
+/proc/sys/kernel/ns_last_pid
+/proc/pressure/io
+/proc/pressure/cpu
+/proc/pressure/memory
+/proc/1/task/1/attr/current
+/proc/1/task/1/attr/exec
+/proc/1/task/1/attr/fscreate
+/proc/1/task/1/attr/keycreate
+/proc/1/task/1/attr/sockcreate
+/proc/1/task/1/attr/smack/current
+/proc/1/task/1/attr/apparmor/current
+/proc/1/task/1/attr/apparmor/exec
+/proc/1/attr/current
+/proc/1/attr/exec
+/proc/1/attr/fscreate
+/proc/1/attr/keycreate
+/proc/1/attr/sockcreate
+/proc/1/attr/smack/current
+/proc/1/attr/apparmor/current
+/proc/1/attr/apparmor/exec
+
+===== AUDIT COMPLETE =====
